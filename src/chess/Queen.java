@@ -15,8 +15,8 @@ public class Queen extends Piece{
     }
     
     @Override
-    public void move() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean move(int row, int col) {
+        return ((Math.abs(row  - getRow()) == Math.abs(col - getCol()))) || (row == getRow() || col == getCol());
     }
     
 }

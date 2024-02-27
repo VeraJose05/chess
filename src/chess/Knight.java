@@ -15,8 +15,9 @@ public class Knight extends Piece{
     }
     
     @Override
-    public void move() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean move(int row, int col) {
+        return (Math.abs(row - getRow()) == 1 && Math.abs(col - getCol()) == 2 )
+                || (Math.abs(row - getRow()) == 2 && Math.abs(col - getCol()) == 1 );
     }
     
 }

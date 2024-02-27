@@ -15,8 +15,8 @@ public class Pawn extends Piece{
     }
     
     @Override
-    public void move() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean move(int row, int col){
+        return ( row == getRow()+2 || row == getRow() + 1 || row == getRow() + 1 && Math.abs(col-getCol()) == 1 );
     }
     
 }
