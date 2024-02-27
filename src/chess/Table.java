@@ -6,6 +6,8 @@ public class Table {
     
     private static final int nRows=8;
     
+    
+    private static final char EMPTY ='-';
     private static final char PAWN='P';
     private static final char QUEEN='Q';
     private static final char KING='K';
@@ -43,7 +45,7 @@ public class Table {
                     Tablero[6][j]=PAWN;
                 }
                 else{
-                   Tablero_piezas[1][j] = new Pawn( color, 1 , j );
+                    Tablero_piezas[1][j] = new Pawn( color, 1 , j );
                     Tablero[1][j]=PAWN;      
                 }
         }
@@ -53,9 +55,10 @@ public class Table {
 
         for( int j = 0 ; j < nRows ; j++) {
             if ( color ){
-                if ( j == 1 || j == 6 )
+                if ( j == 1 || j == 6 ){
                     Tablero_piezas[7][j] = new Knight( color, 7, j );
                     Tablero[7][j]=KNIGHT;
+                }
             }
             else{
                 if ( j == 1 || j == 6 ){
@@ -69,14 +72,16 @@ public class Table {
         
         for( int j = 0 ; j < nRows ; j++) {
             if ( color ){
-                if ( j == 2 || j == 5 )
+                if ( j == 2 || j == 5 ){
                     Tablero_piezas[7][j] = new Bishop( color, 7, j );
                     Tablero[7][j]=BISHOP;
+                }
             }
             else{
-                if ( j == 2 || j == 5 )
+                if ( j == 2 || j == 5 ){
                     Tablero_piezas[0][j] = new Bishop( color, 0, j );
                     Tablero[0][j]=BISHOP;
+                }
             }
         }
         
@@ -84,14 +89,16 @@ public class Table {
         
         for( int j = 0 ; j < nRows ; j++) {
             if ( color ){
-                if ( j == 0 || j == 7 )
+                if ( j == 0 || j == 7 ){
                     Tablero_piezas[7][j] = new Rook( color, 7, j );
                     Tablero[7][j]=ROOK;
+                }
             }
             else{
-                if ( j == 0 || j == 7 )
+                if ( j == 0 || j == 7 ){
                     Tablero_piezas[0][j] = new Rook( color, 0, j );
                     Tablero[0][j]=ROOK;
+                }
             }
         }
         
@@ -122,7 +129,16 @@ public class Table {
             Tablero[0][3]=QUEEN;
         }
         
-        
+         
+        for ( int i = 2 ; i < 6 ; i++ ){
+            
+            for ( int j = 0 ; j < nRows ; j++){
+                
+                Tablero[i][j] = EMPTY;
+            
+            }
+            
+        }
         
     }
     
