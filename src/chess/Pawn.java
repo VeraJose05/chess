@@ -8,34 +8,17 @@ package chess;
  *
  * @author jose
  */
-public class Pawn extends Piece{
-    private boolean firstMove;
+public class Pawn extends FirstMovePiece{
     public Pawn(boolean isWhite, int row, int col) {
         super(isWhite, row, col);
-        this.firstMove = true;
-    }
-
-    public boolean isFirstMove() {
-        return firstMove;
-    }
-
-    public void setFirstMove(boolean firstMove) {
-        this.firstMove = firstMove;
     }
     
     @Override
     public boolean canMove(int row, int col) {
         boolean isForwardOne = row == getRow() - 1;
-        boolean isForwardTwo = row == getRow() - 2 && firstMove;
+        boolean isForwardTwo = row == getRow() - 2 && isFirstMove();
         boolean isCaptureDiagonal = row == getRow() - 1 && Math.abs(col - getCol()) == 1;
 
         return isForwardTwo || isForwardOne || isCaptureDiagonal;
     }
-    
-    @Override
-    public String toString() {
-        return super.toString() + "firstMove:" + (firstMove ? "Yes" : "No");
-    }
-
-    
 }
