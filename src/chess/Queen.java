@@ -15,8 +15,9 @@ public class Queen extends Piece{
     }
     
     @Override
-    public boolean move(int row, int col) {
-        return ((Math.abs(row  - getRow()) == Math.abs(col - getCol()))) || (row == getRow() || col == getCol());
+    public boolean canMove(int row, int col) {
+        return ((Math.abs(row  - getRow()) == Math.abs(col - getCol()))) 
+                || (row == getRow() || col == getCol());
     }
     
 }

@@ -15,7 +15,7 @@ public class Knight extends Piece{
     }
     
     @Override
-    public boolean move(int row, int col) {
+    public boolean canMove(int row, int col) {
         return (Math.abs(row - getRow()) == 1 && Math.abs(col - getCol()) == 2 )
                 || (Math.abs(row - getRow()) == 2 && Math.abs(col - getCol()) == 1 );
     }

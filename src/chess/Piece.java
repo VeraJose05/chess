@@ -25,7 +25,11 @@ public abstract class Piece {
         this(color, true, row, col);
     }
     
-    public abstract boolean move(int row, int col);
+    public Piece(){
+        this(true, false, -1, -1);
+    }
+    
+    public abstract boolean canMove(int row, int col);
 
     public boolean isWhite() {
         return isWhite;
