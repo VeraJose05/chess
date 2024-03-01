@@ -9,15 +9,27 @@ package chess;
  * @author jose
  */
 public class King extends Piece{
-
+    private boolean firstMove;
+    
     public King(boolean isWhite, int row, int col) {
         super(isWhite, row, col);
+        this.firstMove = true;
+    }
+
+    public boolean isFirstMove() {
+        return firstMove;
+    }
+
+    public void setFirstMove(boolean firstMove) {
+        this.firstMove = firstMove;
     }
     
     @Override
-    public boolean move(int row, int col) {
-        return ( Math.abs(row - getRow()) == 1 || Math.abs(col - getCol()) == 1 
-                || col == getCol() + 2 || col == getCol() + 2);
+    public boolean canMove(int row, int col) {
+        boolean isStandardMove = Math.abs(row - getRow()) == 1 || Math.abs(col - getCol()) == 1;
+        boolean isKingsideCastling = col == getCol() + 2 && firstMove;
+        boolean isQueensideCastling = col == getCol() - 2 && firstMove;
+
+        return isStandardMove || isKingsideCastling || isQueensideCastling;
     }
-    
 }

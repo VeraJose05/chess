@@ -9,14 +9,28 @@ package chess;
  * @author jose
  */
 public class Pawn extends Piece{
-
+    private boolean firstMove;
     public Pawn(boolean isWhite, int row, int col) {
         super(isWhite, row, col);
+        this.firstMove = true;
+    }
+
+    public boolean isFirstMove() {
+        return firstMove;
+    }
+
+    public void setFirstMove(boolean firstMove) {
+        this.firstMove = firstMove;
     }
     
     @Override
-    public boolean move(int row, int col){
-        return ( row == getRow()+2 || row == getRow() + 1 || row == getRow() + 1 && Math.abs(col-getCol()) == 1 );
+    public boolean canMove(int row, int col) {
+        boolean isForwardOne = row == getRow() - 1;
+        boolean isForwardTwo = row == getRow() - 2 && firstMove;
+        boolean isCaptureDiagonal = row == getRow() - 1 && Math.abs(col - getCol()) == 1;
+
+        return isForwardTwo || isForwardOne || isCaptureDiagonal;
     }
+
     
 }
