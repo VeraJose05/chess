@@ -32,4 +32,11 @@ public class King extends Piece{
 
         return isStandardMove || isKingsideCastling || isQueensideCastling;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "firstMove:" + (firstMove ? "Yes" : "No");
+    }
+    
+    
 }

@@ -55,5 +55,16 @@ public abstract class Piece {
         this.row = row;
         this.col = col;
     }
+
+    @Override
+    public String toString() {
+        return "Type: " + getClass().getSimpleName() +
+                " Color: " + (isWhite ? "White " : "Black ") + 
+                "Alive: " + (isAlive ? "Yes " : "No ") + 
+                "Pos[" + row + " , " + col + "] "; 
+    }
     
+    public char getIni(){
+        return getClass().getSimpleName().charAt(0);
+    }
 }

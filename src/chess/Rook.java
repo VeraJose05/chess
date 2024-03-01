@@ -29,4 +29,8 @@ public class Rook extends Piece{
         return (row == getRow() || col == getCol());
     }
     
+    @Override
+    public String toString() {
+        return super.toString() + "firstMove:" + (firstMove ? "Yes" : "No");
+    }
 }

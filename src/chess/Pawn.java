@@ -31,6 +31,11 @@ public class Pawn extends Piece{
 
         return isForwardTwo || isForwardOne || isCaptureDiagonal;
     }
+    
+    @Override
+    public String toString() {
+        return super.toString() + "firstMove:" + (firstMove ? "Yes" : "No");
+    }
 
     
 }
