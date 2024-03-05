@@ -64,7 +64,10 @@ public class Table {
                 logicalBoard[toRow][toCol] = piece;
                 piece.setPos(toRow, toCol);
                 visualBoard[fromRow][fromCol] = EMPTY;
-                visualBoard[toRow][toCol] = piece.getIni() ;
+                if (piece.isWhite())
+                    visualBoard[toRow][toCol] = piece.getIni() ; 
+                else
+                    visualBoard[toRow][toCol] = Character.toLowerCase(piece.getIni()) ; 
             }
         }
         
@@ -138,7 +141,7 @@ public class Table {
     
     @Override
     public String toString(){
-        String resultado = "";
+        String resultado = "Tablero de las" + (isWhiteAtBottom ? "Blancas:" : "Negras:") + "\n";
         for ( int i = 0 ; i < tamBoard ; i++){
             for ( int j = 0 ; j < tamBoard ; j++){
                 resultado += visualBoard[i][j] + " ";
@@ -230,7 +233,7 @@ public class Table {
 
             Pawn pawnTop = new Pawn(!isWhiteAtBottom, pawnRowTop, j);
             logicalBoard[pawnRowTop][j] = pawnTop;
-            visualBoard[pawnRowTop][j] = PAWN;
+            visualBoard[pawnRowTop][j] = Character.toLowerCase(PAWN);
             opponentPieces.add(pawnTop);
         }
 
@@ -244,7 +247,7 @@ public class Table {
 
             Piece backRowTopPiece = createPiece(pieceType, !isWhiteAtBottom, backRowTop, j);
             logicalBoard[backRowTop][j] = backRowTopPiece;
-            visualBoard[backRowTop][j] = pieceType;
+            visualBoard[backRowTop][j] = Character.toLowerCase(pieceType);
             opponentPieces.add(backRowTopPiece);
         }
     }
