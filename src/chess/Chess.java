@@ -5,12 +5,11 @@ package chess;
 public class Chess {
 
     public static void main(String[] args) {
+        Game game = new Game();
         
-        Table myTable = new Table();
+        game.play();
         
-        System.out.println(myTable.showState());
         
-        System.out.println("pablo no sabe programar");
     }
     
 }
